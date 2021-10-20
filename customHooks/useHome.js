@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import { uploadData } from '../store/actions/Action'
 import { useDispatch, useSelector } from 'react-redux'
+import { uploadData } from '../store/actions/Action'
 const useHome = () => {
     const [laoding, setLaoding] = useState(true)
     const [img1, setImg1] = useState({ url: '', data: {}})
