@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from 'react-redux'
-import { addUser } from "../store/Actions/action";
+import { addUser } from "../store/actions/Action";
 import { signup } from "../store/actions/AuthAction";
 function useRegister() {
     const dispatch = useDispatch()
