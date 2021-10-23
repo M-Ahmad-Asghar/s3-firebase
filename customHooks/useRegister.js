@@ -1,36 +1,46 @@
-import { useState, useEffect } from "react";
-import { useSelector, useDispatch } from 'react-redux'
-import { addUser } from "../store/actions/Action";
-import { signup } from "../store/actions/AuthAction";
+import { useState } from "react";
+import {  useDispatch } from 'react-redux'
+import { signup, } from "../store/actions/AuthAction";
+
 function useRegister() {
+
     const dispatch = useDispatch()
-    const [loading, setLoading] = useState(true);
-    const [userName, setUserName] = useState('')
+    const [loading, setLoading] = useState(true)
+    const [firstName, setfirstName] = useState('')
+    const [lastName, setLastName] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [cPassword, setCPassword] = useState('')
+    const [showPassword, setShowPassword] = useState(false)
     // getting current date
 
     var today = new Date();
     var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
     var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
     var dateTime = date + ' ' + time;
-    let spaceChk = userName.includes(' ')
-    let data ={
-        userName:userName,
-        email:email,
-        password:password,
-        time:dateTime,
+    let spaceChk = firstName.includes(' ')
+
+    let data = {
+        firstName: firstName,
+        lastName: lastName,
+        email: email,
+        password: password,
+        time: dateTime,
     }
-    
+
     function ctaHandler() {
-        {userName !='' && email!='' && password !='' && cPassword != '' ? dispatch(addUser(data, setLoading)): alert('Please fill all fields');
-         dispatch(signup(data, setLoading))}
+        if (password === cPassword) {
+
+            if (firstName != '' && email != '' && password != '' && cPassword != '') {
+
+            } else {
+                alert('Please fill all fields')
+            }
+            dispatch(signup(data, setLoading))
+        } else { alert('Passowrd is not same!') }
     }
-    const user = useSelector(state => state.authReducer.user)
-    console.log('user', user);
-    return [data,dispatch, addUser, setLoading, userName, setUserName, email, setEmail,
-         password, setPassword, cPassword, setCPassword, ctaHandler ]
+    return [firstName, setfirstName, lastName, setLastName, email, setEmail,
+        password, setPassword, cPassword, setCPassword, ctaHandler, showPassword, setShowPassword]
 }
 
 export default useRegister

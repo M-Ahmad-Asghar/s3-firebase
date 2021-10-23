@@ -17,10 +17,11 @@
 }
 .body {
   margin: 0;
-  padding: 2%;
+  margin-top: 2px;
+  height: 86vh;
   padding-top: 50px;
   padding-bottom: 27%;
-  background: #DDD;
+  background: #ddd;
   font-size: 16px;
   color: #222;
   font-family: 'Roboto', sans-serif;
@@ -30,10 +31,9 @@
 #loginBox {
   position: relative;
   margin:  auto;
-  margin-top: 3%;
   width: 400px;
   height: 350px;
-  background: #FFF;
+  background: white;
   border-radius: 2px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
 }
@@ -58,6 +58,7 @@
 .inputs[type="password"] {
   display: block;
   box-sizing: border-box;
+  outline: none;
   margin-bottom: 30px;
   padding: 6px;
   width: 320px;

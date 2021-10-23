@@ -15,23 +15,22 @@
 .body {
   margin: 0;
   padding: 2%;
-  padding-top: 50px;
-    padding-bottom: 7%;
+  margin-top: 3px;
+  padding-bottom: 7%;
   background: #DDD;
   font-size: 16px;
   color: #222;
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
+  height: 90vh;
 }
 
 #loginBox {
   position: relative;
   margin:  auto;
-  margin-top: 3%;
-
-  width: 800px;
-  height: 500px;
-  background: #FFF;
+  width: 400px;
+  height: 550px;
+  background: white;
   border-radius: 2px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
 }
@@ -55,6 +54,7 @@
 .inputs[type="text"],
 .inputs[type="password"] {
   display: block;
+  outline: none;
   box-sizing: border-box;
   margin-bottom: 30px;
   padding: 6px;
