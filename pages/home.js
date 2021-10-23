@@ -6,7 +6,7 @@ import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Spinner from 'react-bootstrap/Spinner';
-const Home = () => {
+const Home = ({use}) => {
     const [laoding, selectedImages, ,
         handleRemoveItem, handleChange, onClickHandel1, , onClickHandel2,  ] = useHome()
     return (
