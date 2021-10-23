@@ -23,4 +23,6 @@ const withAuth = (WrappedComponent) => {
   };
 };
 
+widthAuth.displayName = 'withAuth'
+
 export default withAuth;

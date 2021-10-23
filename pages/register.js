@@ -2,7 +2,7 @@ import styles from '../styles/Register.module.css'
 import Link from 'next/link'
 import useRegister from '../customHooks/useRegister'
 import withAuth from '../components/withAuth/WithAuth'
-const Register = ({use}) => {
+const Register = () => {
     const [data,dispatch, setLoading, firstName, setfirstName,lastName, setLastName, email, setEmail,
         password, setPassword, cPassword, setCPassword, ctaHandler, showPassword, setShowPassword ] = useRegister()
     return (
@@ -38,4 +38,4 @@ const Register = ({use}) => {
         </div>
     )
 }
-export default withAuth(Register)
+export default withAuth()
