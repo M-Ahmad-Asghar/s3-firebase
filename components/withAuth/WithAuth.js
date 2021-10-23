@@ -16,6 +16,9 @@ const withAuth = (WrappedComponent) => {
       if (accessToken) {
         Router.push("home");
       }
+      if (!accessToken) {
+        Router.push("login");
+      }
     }, [accessToken]);
 
       return <WrappedComponent {...props} />;
