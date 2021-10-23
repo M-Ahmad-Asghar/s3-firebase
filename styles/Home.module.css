@@ -2,8 +2,11 @@
 .file:focus {
   outline: none;
 }
+.file{
+  margin-top: 10px;
+}
 .body {
-  box-shadow: 2px 2px 2px 1px rgba(0px, 0, 0, 0.2);
+ 
   height: 86vh;
   margin: 0;
   padding: 2%;
@@ -150,6 +153,7 @@
   
 }
 .iconBox{
+  cursor: pointer;
   background-color: blue;
   align-content: center;
   margin-left: auto;

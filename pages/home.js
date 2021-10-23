@@ -16,10 +16,12 @@ const Home = () => {
                         <Row>
                             <Col lg={12} md={12} sm={12} xs={12} className={styles.uploadHeading}>
                                 Upload Images
-                                <div className={styles.iconBox}>
+                                <div >
                                     <label htmlFor="inputImg1">
+                                        <div className={styles.iconBox}>
                                         <Image src='/assets/camera.png' alt="" width={40} height={40} className={styles.uploadIcon} />
 
+                                        </div>
                                     </label>
                                     <input type="file" multiple id='inputImg1' name='file[]' onChange={handleChange} className={styles.input} />
                                 </div>
