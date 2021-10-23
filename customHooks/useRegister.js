@@ -1,9 +1,19 @@
-import { useState } from "react";
-import {  useDispatch } from 'react-redux'
+import { useState, useEffect } from "react";
+import {  useDispatch, useSelector } from 'react-redux'
 import { signup, } from "../store/actions/AuthAction";
+import { useRouter } from "next/router";
+import { authStateChk } from "../store/actions/AuthAction";
 
 function useRegister() {
-
+    const Router = useRouter();
+    const [pending, setPending] = useState(true)
+    const user = useSelector(state => state.authReducer.user)
+    useEffect(async () => {
+      dispatch(authStateChk(setPending))
+      if (user) {
+        Router.push("home");
+      }
+    }, [user]);
     const dispatch = useDispatch()
     const [loading, setLoading] = useState(true)
     const [firstName, setfirstName] = useState('')

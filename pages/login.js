@@ -29,4 +29,4 @@ const Login = () => {
     </div>
     )
 }
-export default withAuth(Login)
+export default Login

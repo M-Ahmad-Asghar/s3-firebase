@@ -38,4 +38,4 @@ const Register = () => {
         </div>
     )
 }
-export default withAuth(Register)
+export default Register

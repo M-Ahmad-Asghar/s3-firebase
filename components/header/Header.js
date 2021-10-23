@@ -24,7 +24,7 @@ const Header = () => {
                     onClick={() => {dispatch(logout()), Router.replace('login')}} /> 
                     
             </span>
-            <Link href='home'>Sign up</Link>
+            <Link href='register'>Sign up</Link>
         </div>
     )
 }

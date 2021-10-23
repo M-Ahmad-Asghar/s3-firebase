@@ -13,8 +13,8 @@ const withAuth = (WrappedComponent) => {
    
     useEffect(async () => {
       dispatch(authStateChk(setPending))
-      if (!accessToken) {
-        // Router.push("login");
+      if (accessToken) {
+        Router.push("home");
       }
     }, [accessToken]);
 

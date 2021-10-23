@@ -1,7 +1,19 @@
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from 'react-redux'
 import { login } from "../store/actions/AuthAction";
+import { useRouter } from "next/router";
+import { authStateChk } from "../store/actions/AuthAction";
+
 const useLogin = () => {
+    const Router = useRouter();
+    const [pending, setPending] = useState(true)
+    const user = useSelector(state => state.authReducer.user)
+    useEffect(async () => {
+      dispatch(authStateChk(setPending))
+      if (user) {
+        Router.push("home");
+      }
+    }, [user]);
     const [laoding, setLaoding] = useState(true)
     const dispatch = useDispatch()
 
