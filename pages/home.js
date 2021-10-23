@@ -13,8 +13,6 @@ const Home = () => {
         <div className={styles.file}>
             <Container fluid className={styles.body}>
                 <Container id={styles.loginBox}>
-
-
                     <Row>
                         <Row>
                             <Col lg={12} md={12} sm={12} xs={12} className={styles.uploadHeading}>
