@@ -4,7 +4,6 @@
   height: 60px;
   background-color: white ;
   box-shadow: 2px 1px 2px 1px rgba(0, 0, 0, 0.3);
-  /* border-bottom: rgba(0, 0, 0, 0.2) 1px solid; */
 }
 .topnav a {
     float: left;
@@ -15,15 +14,6 @@
     text-decoration: none;
     font-size: 17px;
   }
-  
-  /* Change the color of links on hover */
-  /* .topnav a:hover {
-    background-color: #222;
-    color: white;
-    height: 60px;
-  } */
-  
-  /* Add a color to the active/current link */
   .links {
     background-color: #222;
     color: white;

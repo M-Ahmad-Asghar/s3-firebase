@@ -10,7 +10,7 @@ const useHome = () => {
   const dispatch = useDispatch();
 
   const onClickHandel1 = () => {
-    { dispatch(uploadData(setLaoding, images, setStatus, user)), setSelectedImages([]), setImages([]) }
+    { dispatch(uploadData(setLaoding, images, user)), setSelectedImages([]), setImages([]) }
   }
   const handleChange = (e) => {
     if (e.target.files) {
