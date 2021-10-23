@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from 'react-redux'
 import { authStateChk } from "../../store/actions/AuthAction";
 function withAuth(WrappedComponent) {
-  return (props) => {
+  return function myFun(props)  {
     const [pending, setPending] = useState(true)
     const dispatch = useDispatch();
     const Router = useRouter();
