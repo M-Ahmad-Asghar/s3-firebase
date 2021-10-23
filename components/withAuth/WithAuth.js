@@ -3,8 +3,7 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from 'react-redux'
 import { authStateChk } from "../../store/actions/AuthAction";
-const withAuth = (WrappedComponent) => {
-
+function withAuth(WrappedComponent) {
   return (props) => {
     const [pending, setPending] = useState(true)
     const dispatch = useDispatch();
@@ -21,8 +20,6 @@ const withAuth = (WrappedComponent) => {
       return <WrappedComponent {...props} />;
    
   };
-};
-
-widthAuth.displayName = 'withAuth'
+}
 
 export default withAuth;
