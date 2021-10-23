@@ -13,7 +13,7 @@ const Home = () => {
         <div className={styles.file}>
             <Container fluid className={styles.body}>
                 <Container id={styles.loginBox}>
-                    <Row>
+                    <Row >
                         <Row>
                             <Col lg={12} md={12} sm={12} xs={12} className={styles.uploadHeading}>
                                 Upload Images
@@ -28,7 +28,7 @@ const Home = () => {
                         </Row>
                         {
                             selectedImages.map((url, index) => {
-                                return <Col lg={1} md={2} sm={2} xs={3} xxs={6}>
+                                return <Col lg={1} md={2} sm={2} xs={3} xxs={6} key={url}>
                                     <div className={styles.imagesBox}>
                                         <Image layout="fill" objectFit="cover" src={url} alt="" />
                                         <div className={styles.cross} onClick={(e) => handleRemoveItem(url, index)}>X</div>
