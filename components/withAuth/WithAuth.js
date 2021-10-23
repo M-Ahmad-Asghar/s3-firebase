@@ -3,8 +3,9 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from 'react-redux'
 import { authStateChk } from "../../store/actions/AuthAction";
-function withAuth(WrappedComponent) {
-  return function myFun(props)  {
+const withAuth = (WrappedComponent) => {
+
+  return function NewFun (props) {
     const [pending, setPending] = useState(true)
     const dispatch = useDispatch();
     const Router = useRouter();
@@ -20,6 +21,7 @@ function withAuth(WrappedComponent) {
       return <WrappedComponent {...props} />;
    
   };
-}
+};
+
 
 export default withAuth;
