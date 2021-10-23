@@ -1,6 +1,6 @@
 import { useEffect } from "react"
 import { useRouter } from "next/router"
-export default function Home() {
+export default function index() {
   const router = useRouter()
    useEffect(() => {
     router.push('login')
