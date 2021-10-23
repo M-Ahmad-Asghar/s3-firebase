@@ -7,7 +7,7 @@ import { logout, authStateChk } from '../../store/actions/AuthAction'
 import { useRouter } from "next/router";
 
 
-const Header = () => {
+const Header = ({user}) => {
     const dispatch = useDispatch();
     const [pending, setPending] = useState(true)
     const Router = useRouter()
