@@ -14,7 +14,7 @@ export const signup = (data, setLoading) => async (dispatch) => {
         });
         setLoading(false)
     } catch (error) {
-        console.log("error", error);
+        alert(JSON.stringify(error));
     } finally {
         setLoading(false)
     }

@@ -14,10 +14,22 @@
     text-decoration: none;
     font-size: 17px;
   }
-  .links {
-    background-color: #222;
-    color: white;
-    height: 60px;
+  @media only screen and (max-width: 425px){
+    .topnav a{
+      font-size: 15px;
+      font-weight: 400;
+    }
+   
+  }
+  @media only screen and (max-width: 350px){
+    .topnav{
+      /* flex-direction: column ; */
+    }
+
+    .links{
+     display: none;
+    }
+    
   }
   .logoutIcon{
     margin: 15px;

@@ -1,7 +1,6 @@
 import styles from '../styles/Login.module.css'
 import Link from 'next/link'
 import useLogin from '../customHooks/useLogin'
-import withAuth from '../components/withAuth/WithAuth'
 const Login = () => {
     const [ ctaHandler, email, setEmail, password, setPassword] = useLogin()
     return (

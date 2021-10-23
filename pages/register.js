@@ -1,7 +1,6 @@
 import styles from '../styles/Register.module.css'
 import Link from 'next/link'
 import useRegister from '../customHooks/useRegister'
-import withAuth from '../components/withAuth/WithAuth'
 const Register = () => {
     const [firstName, setfirstName, lastName, setLastName, email, setEmail,
         password, setPassword, cPassword, setCPassword, ctaHandler, showPassword, setShowPassword ] = useRegister()
@@ -25,7 +24,7 @@ const Register = () => {
                     value={cPassword} onChange={(e) => setCPassword(e.target.value)}/>
                         <input type="checkbox"  onChange={()=>setShowPassword(!showPassword)} /> Show Password
                     <div className={styles.btnLink}>
-                    <input type="submit" name="signup_submit" value="Sign me up" className={styles.inputs} onClick={ctaHandler}
+                    <input type="submit" name="signup_submit" value="Sign up" className={styles.inputs} onClick={ctaHandler}
                     />
                     <p className={styles.login}>or <Link href='/login'>Login</Link></p>
                     

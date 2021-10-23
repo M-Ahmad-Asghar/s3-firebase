@@ -22,11 +22,12 @@
   color: #222;
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
-  height: 90vh;
+  min-height: 100vh;
 }
 
 #loginBox {
   position: relative;
+  margin-top: 20px;
   margin:  auto;
   width: 400px;
   height: 550px;
@@ -34,7 +35,18 @@
   border-radius: 2px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
 }
-
+@media only screen and (max-width: 427px){
+  #loginBox{
+    width:80% !important;
+  }
+  .inputs[type="text"],
+.inputs[type="password"]{
+  width: 65% !important;
+}
+.body{
+  padding: 0px !important;
+}
+}
 .left {
   position: absolute;
   top: 0;

@@ -47,7 +47,15 @@
   width: 400px;
   height: 350px;
 }
-
+@media only screen and (max-width: 425px){
+  #loginBox{
+    width:90% !important;
+  }
+  .inputs[type="text"],
+.inputs[type="password"]{
+  width: 65% !important;
+}
+}
 .headings {
   margin: 0 0 20px 0;
   font-weight: 300;

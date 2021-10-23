@@ -1,5 +1,4 @@
 import styles from '../styles/Home.module.css'
-import withAuth from '../components/withAuth/WithAuth'
 import Image from 'next/image'
 import useHome from '../customHooks/useHome'
 import Container from 'react-bootstrap/Container'
