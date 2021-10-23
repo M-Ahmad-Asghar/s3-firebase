@@ -13,6 +13,7 @@ function useRegister() {
       if (user) {
         Router.push("home");
       }
+      
     }, [user]);
     const dispatch = useDispatch()
     const [loading, setLoading] = useState(true)
