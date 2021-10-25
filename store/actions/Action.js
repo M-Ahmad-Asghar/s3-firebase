@@ -45,7 +45,12 @@ export const uploadData = (setLoading, images, user, setSuccess) => async (dispa
             progress: undefined,
           });
     } catch (error) {
-        console.log("error", error);
+        toast.error(error.code, {
+            position: "top-center",
+            pauseOnHover: true,
+            draggable: false,
+            progress: undefined,
+          });
     } finally {
         setLoading(false)
     }

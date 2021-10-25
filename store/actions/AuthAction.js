@@ -112,7 +112,12 @@ export const logout = () => async (dispatch) => {
             // payload: user
         });
     } catch (error) {
-        console.log(error);
+        toast.error(error.code, {
+            position: "top-center",
+            pauseOnHover: true,
+            draggable: false,
+            progress: undefined,
+          });
     }
 }
 export const authStateChk = (setPending) => async (dispatch) => {
