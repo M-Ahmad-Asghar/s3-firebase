@@ -23,6 +23,7 @@ export const signup = (data, setLoading, setSuccess, setPending) => async (dispa
             progress: undefined,
         });
         
+        
     } catch (error) {
         if (error.code === ('auth/invalid-email')) {
             toast.error('Please enter a valid Email!', {
