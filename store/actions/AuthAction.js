@@ -15,6 +15,7 @@ export const signup = (data, setLoading, setSuccess, setPending) => async (dispa
             type: 'SIGNUP',
             payload: null
         });
+        
         setLoading(false)
          toast.success('Successfully Signed up!', {
             position: "top-center",
@@ -23,6 +24,7 @@ export const signup = (data, setLoading, setSuccess, setPending) => async (dispa
             progress: undefined,
         });
         
+
     } catch (error) {
         if (error.code === ('auth/invalid-email')) {
             toast.error('Please enter a valid Email!', {
@@ -112,7 +114,12 @@ export const logout = () => async (dispatch) => {
             // payload: user
         });
     } catch (error) {
-        console.log(error);
+        toast.error(error.code, {
+            position: "top-center",
+            pauseOnHover: true,
+            draggable: false,
+            progress: undefined,
+          });
     }
 }
 export const authStateChk = (setPending) => async (dispatch) => {

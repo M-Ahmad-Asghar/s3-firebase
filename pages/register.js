@@ -12,7 +12,6 @@ const Register = () => {
             <div id={styles.loginBox}>
                 <div className={styles.left}>
                     <h1 className={styles.headings}>Sign up</h1>
-                        {console.log('success', success)}
                     <input type="text" name="1stName" placeholder="First Name" className={styles.inputs}
                      value={firstName}  onChange={(e) => setfirstName(e.target.value)}/>
                     <input type="text" name="lastName" placeholder="Last Name" className={styles.inputs}
@@ -29,10 +28,9 @@ const Register = () => {
                     <button type="submit" name="signup_submit" 
                     className={styles.inputs} onClick={ctaHandler}
                     >
-                     {true? <Spinner animation="border" className={styles.spinner} role="status" />:'Sign up'}
+
+                     {success? <Spinner animation="border" className={styles.spinner} role="status" />:'Sign up'}
                     </button>
-
-
 
                     <p className={styles.login}>or <Link href='/login'>login</Link></p>
                     
