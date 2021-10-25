@@ -17,8 +17,10 @@ export const signup = (data, setLoading, setSuccess, setPending) => async (dispa
             payload: null
         });
 
+
         setLoading(false)
-        toast.success(`A varification email sent to ${data.email} 
+        toast.success(`A varification email sent to 
+        ${data.email} 
          Please Varify your email`, {
             position: "top-center",
             pauseOnHover: true,
