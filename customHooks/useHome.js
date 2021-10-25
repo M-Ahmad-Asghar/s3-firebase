@@ -47,8 +47,8 @@ const useHome = () => {
     }
   };
 
-    return [laoding, selectedImages, ,
-      handleRemoveItem, handleChange, onClickHandel1, , onClickHandel2,]
-  }
+  return [laoding, selectedImages, ,
+    handleRemoveItem, handleChange, onClickHandel1, , onClickHandel2,]
+}
 
 export default useHome
