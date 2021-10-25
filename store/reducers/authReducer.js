@@ -2,6 +2,7 @@ const initialState = {
     isUserLoggedIn: false,
     user: null,
     userState:false,
+    userSet:false,
 }
 const authReducer = (state = initialState, action) => {
     switch (action.type) {
@@ -9,8 +10,8 @@ const authReducer = (state = initialState, action) => {
             // logic
             return {
                 ...state,
-                isUserLoggedIn: true,
-                user: action.payload
+                isUserLoggedIn: false,
+                userSet: true
             };
         }
         case 'LOGIN': {

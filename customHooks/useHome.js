@@ -3,16 +3,17 @@ import { useDispatch, useSelector } from 'react-redux'
 import { authStateChk } from '../store/actions/AuthAction'
 import { uploadData, } from '../store/actions/Action'
 import { useRouter } from "next/router";
-
+import { toast } from 'react-toastify';
 const useHome = () => {
-  
+
   const user = useSelector(state => state.authReducer.user)
+  const [success, setSuccess] = useState(false)
   const [laoding, setLaoding] = useState(false)
   const [images, setImages] = useState([])
   const [selectedImages, setSelectedImages] = useState([])
   const [pending, setPending] = useState(true)
   const Router = useRouter();
-  
+
   const dispatch = useDispatch();
   useEffect(async () => {
     dispatch(authStateChk(setPending))
@@ -21,7 +22,7 @@ const useHome = () => {
     }
   }, [user]);
   const onClickHandel1 = () => {
-    { dispatch(uploadData(setLaoding, images, user)), setSelectedImages([]), setImages([]) }
+    { dispatch(uploadData(setLaoding, images, user, setSuccess)), setSelectedImages([]), setImages([]) }
   }
   const handleChange = (e) => {
     if (e.target.files) {
@@ -45,8 +46,9 @@ const useHome = () => {
 
     }
   };
-  return [laoding, selectedImages, ,
-    handleRemoveItem, handleChange, onClickHandel1, , onClickHandel2,]
-}
+
+    return [laoding, selectedImages, ,
+      handleRemoveItem, handleChange, onClickHandel1, , onClickHandel2,]
+  }
 
 export default useHome

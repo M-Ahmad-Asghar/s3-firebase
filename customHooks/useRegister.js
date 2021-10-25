@@ -3,18 +3,19 @@ import {  useDispatch, useSelector } from 'react-redux'
 import { signup, } from "../store/actions/AuthAction";
 import { useRouter } from "next/router";
 import { authStateChk } from "../store/actions/AuthAction";
+import { toast } from "react-toastify";
 
 function useRegister() {
     const Router = useRouter();
-    const [pending, setPending] = useState(true)
-    const user = useSelector(state => state.authReducer.user)
+    const [success, setSuccess] = useState(false)
+    const [pending, setPending] = useState(false)
+    const user = useSelector(state => state.authReducer.userSet)
     useEffect(async () => {
-      dispatch(authStateChk(setPending))
-      if (user) {
-        Router.push("home");
+      if (pending) {
+        Router.push("login");
       }
       
-    }, [user]);
+    }, [pending]);
     const dispatch = useDispatch()
     const [loading, setLoading] = useState(true)
     const [firstName, setfirstName] = useState('')
@@ -38,20 +39,32 @@ function useRegister() {
         password: password,
         time: dateTime,
     }
-
     function ctaHandler() {
         if (password === cPassword) {
 
             if (firstName != '' && email != '' && password != '' && cPassword != '') {
-
+                {dispatch(signup(data, setLoading, setSuccess, setPending)), setSuccess(true)}
             } else {
-                alert('Please fill all fields')
+                toast.error('All fields are required!', {
+                    position: "top-center",
+                    pauseOnHover: true,
+                    draggable: false,
+                    progress: undefined,
+                });
             }
-            dispatch(signup(data, setLoading))
-        } else { alert('Passowrd is not same!') }
+            
+        } else { 
+            toast.error('Passwords do not match', {
+                position: "top-center",
+                pauseOnHover: true,
+                draggable: false,
+                progress: undefined,
+            });
+    }
+
     }
     return [firstName, setfirstName, lastName, setLastName, email, setEmail,
-        password, setPassword, cPassword, setCPassword, ctaHandler, showPassword, setShowPassword]
+        password, setPassword, cPassword, setCPassword, ctaHandler, showPassword, setShowPassword, success]
 }
 
 export default useRegister
