@@ -15,6 +15,7 @@ const Login = () => {
                         <input type="text" name="email" placeholder="E-mail" className={styles.inputs}
                             value={email} onChange={(e) => setEmail(e.target.value)}
                         />
+                        
                         <input type={showPassword ? 'text' : 'password'} name="password" placeholder="Password" className={styles.inputs}
                             value={password} onChange={(e) => setPassword(e.target.value)}
                         />
