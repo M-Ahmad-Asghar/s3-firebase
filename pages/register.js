@@ -33,6 +33,7 @@ const Register = () => {
                     </button>
 
 
+
                     <p className={styles.login}>or <Link href='/login'>login</Link></p>
                     
                     </div>
