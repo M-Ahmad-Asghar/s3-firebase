@@ -31,9 +31,6 @@ const Register = () => {
                     >
                      {true? <Spinner animation="border" className={styles.spinner} role="status" />:'Sign up'}
                     </button>
-
-
-
                     <p className={styles.login}>or <Link href='/login'>login</Link></p>
                     
                     </div>
