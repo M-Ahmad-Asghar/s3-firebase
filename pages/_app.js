@@ -5,6 +5,8 @@ import { createWrapper } from 'next-redux-wrapper'
 import store from '../config/Store'
 import Header from '../components/header/Header'
 import Footer from '../components/footer/Footer';
+import 'react-toastify/dist/ReactToastify.css';
+import { toast, ToastContainer } from "react-toastify";
 
 function MyApp({ Component, pageProps }) {
 	return (
@@ -14,6 +16,7 @@ function MyApp({ Component, pageProps }) {
 				<Component {...pageProps} />
 			</Provider>
 		<Footer />
+		<ToastContainer />
 		</>
 	)
 }

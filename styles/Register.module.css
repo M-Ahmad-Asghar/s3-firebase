@@ -194,3 +194,8 @@ button.socialSignin.twitter {
 button.socialSignin.google {
   background: #DD4B39;
 }
+.spinner{
+  color: white;
+  width: 25px;
+  height: 25px;
+}

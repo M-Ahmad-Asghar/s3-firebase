@@ -1,8 +1,10 @@
 import styles from '../styles/Login.module.css'
 import Link from 'next/link'
 import useLogin from '../customHooks/useLogin'
+import Spinner from 'react-bootstrap/Spinner';
+
 const Login = () => {
-    const [ ctaHandler, email, setEmail, password, setPassword] = useLogin()
+    const [ ctaHandler, email, setEmail, password, setPassword, success] = useLogin()
     return (
         <div className={styles.file}>
         <div className={styles.body}>
@@ -18,7 +20,10 @@ const Login = () => {
                 />
 
                 <div className={styles.btnLink}>
-                <input type="submit" name="signup_submit" value="Login" className={styles.inputs} onClick={ctaHandler}/>
+                <button className={styles.inputs} type="submit" name="login" onClick={ctaHandler}>
+                {success? <Spinner animation="border" className={styles.spinner} role="status" />:'Log in'}
+
+                </button>
                 <p className={styles.login}> or <Link href='/register'>Sign up</Link></p>
                 </div>
             </div>

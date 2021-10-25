@@ -1,9 +1,9 @@
 import { collection, getDocs, doc, getDoc, addDoc, setDoc, updateDoc, arrayUnion, arrayRemove } from "firebase/firestore";
 import { db, storage } from "../../config/Firebase";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+import { toast } from "react-toastify";
 
-
-export const uploadData = (setLoading, images, user) => async (dispatch) => {
+export const uploadData = (setLoading, images, user, setSuccess) => async (dispatch) => {
 
     try {
         setLoading(true)
@@ -32,11 +32,18 @@ export const uploadData = (setLoading, images, user) => async (dispatch) => {
             )
         })
         const urlsUpload = await Promise.all(urlUpload)
-        setLoading(false)
+        
         dispatch({
             type: 'UPLOAD_IMAGE',
             payload: urlsUpload
         });
+        setLoading(false)
+        toast.success('Images successfully uploaded!', {
+            position: "top-center",
+            pauseOnHover: true,
+            draggable: false,
+            progress: undefined,
+          });
     } catch (error) {
         console.log("error", error);
     } finally {
