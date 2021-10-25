@@ -9,10 +9,13 @@ function useRegister() {
     const Router = useRouter();
     const [success, setSuccess] = useState(false)
     const [pending, setPending] = useState(false)
-    const user = useSelector(state => state.authReducer.userSet)
+    const user = useSelector(state => state.authReducer.user)
     useEffect(async () => {
+        dispatch(authStateChk(setPending))
       if (pending) {
         Router.push("login");
+      } if(user){
+        Router.push("home");
       }
       
     }, [pending]);

@@ -9,7 +9,6 @@ export const signup = (data, setLoading, setSuccess, setPending) => async (dispa
         const userCredential = await createUserWithEmailAndPassword(auth, data.email, data.password)
         const user = userCredential.user
         await setDoc(doc(db, "users", user.uid), data);
-        await sendEmailVerification(auth.currentUser)
         user && setPending(true)
         await auth.signOut()
         dispatch({
@@ -19,9 +18,7 @@ export const signup = (data, setLoading, setSuccess, setPending) => async (dispa
 
 
         setLoading(false)
-        toast.success(`A varification email sent to 
-        ${data.email} 
-         Please Varify your email`, {
+        toast.success(`You have successfully signed up`, {
             position: "top-center",
             pauseOnHover: true,
             draggable: false,
@@ -62,7 +59,7 @@ export const login = (data, setLoading, setSuccess) => async (dispatch) => {
     try {
         const userCredential = await signInWithEmailAndPassword(auth, data.email, data.password)
         const user = userCredential.user
-        if (user.emailVerified) {
+        if (user) {
             dispatch({
                 type: 'LOGIN',
                 payload: user
@@ -74,14 +71,7 @@ export const login = (data, setLoading, setSuccess) => async (dispatch) => {
                 draggable: false,
                 progress: undefined,
             });
-        } else {
-            toast.warning('Email is not Varified!', {
-                position: "top-center",
-                pauseOnHover: true,
-                draggable: false,
-                progress: undefined,
-            });
-        }
+        } 
     } catch (error) {
         if (error.code === ('auth/invalid-email')) {
             toast.error('Please enter a valid email', {
@@ -145,7 +135,7 @@ export const authStateChk = (setPending) => async (dispatch) => {
     try {
         const user = auth.currentUser
 
-        if (user.emailVerified) {
+        if (user) {
             const uid = user.uid;
             dispatch({
                 type: "AUTH_STATE",
@@ -160,7 +150,12 @@ export const authStateChk = (setPending) => async (dispatch) => {
         setPending(false)
     }
     catch (error) {
-        console.log(JSON.stringify(error))
+        toast.error(error.code, {
+            position: "top-center",
+            pauseOnHover: true,
+            draggable: false,
+            progress: undefined,
+        });
     } finally {
         setPending(false)
     }
