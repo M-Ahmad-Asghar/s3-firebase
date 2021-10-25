@@ -113,6 +113,12 @@ export const logout = () => async (dispatch) => {
             type: 'LOGOUT',
             // payload: user
         });
+        toast.warning('You have logged out', {
+            position: "top-center",
+            pauseOnHover: true,
+            draggable: false,
+            progress: undefined,
+        });
     } catch (error) {
         toast.error(error.code, {
             position: "top-center",
