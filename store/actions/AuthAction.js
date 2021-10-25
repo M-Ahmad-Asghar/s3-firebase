@@ -15,6 +15,7 @@ export const signup = (data, setLoading, setSuccess, setPending) => async (dispa
             type: 'SIGNUP',
             payload: null
         });
+        
         setLoading(false)
          toast.success('Successfully Signed up!', {
             position: "top-center",
@@ -23,7 +24,7 @@ export const signup = (data, setLoading, setSuccess, setPending) => async (dispa
             progress: undefined,
         });
         
-        
+
     } catch (error) {
         if (error.code === ('auth/invalid-email')) {
             toast.error('Please enter a valid Email!', {
