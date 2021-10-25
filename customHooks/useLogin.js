@@ -9,6 +9,7 @@ const useLogin = () => {
   const Router = useRouter();
   const [success, setSuccess] = useState(false)
   const [pending, setPending] = useState(true)
+  const [showPassword, setShowPassword] = useState(false)
   const user = useSelector(state => state.authReducer.user)
   useEffect(async () => {
     dispatch(authStateChk(setPending))
@@ -38,7 +39,7 @@ const useLogin = () => {
     }
 
   }
-  return [ctaHandler, email, setEmail, password, setPassword, success]
+  return [ctaHandler, email, setEmail, password, setPassword, success, showPassword, setShowPassword]
 }
 
 export default useLogin
