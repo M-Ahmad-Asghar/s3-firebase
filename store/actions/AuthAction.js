@@ -119,6 +119,7 @@ export const logout = () => async (dispatch) => {
             draggable: false,
             progress: undefined,
         });
+        
     } catch (error) {
         toast.error(error.code, {
             position: "top-center",
